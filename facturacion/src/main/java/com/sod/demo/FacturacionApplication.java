@@ -38,11 +38,11 @@ public class FacturacionApplication {
 	private ApiInfo metaData() {
 		ApiInfo apiInfo = new ApiInfo(
 				"Facturación con Spring Boot",
-				"Sistemas Operativos Distribuidos",
+				"Microservicio de facturación",
 				"1.0",
 				"Terms of service",
-				new Contact("Bryan Espinoza - Kevin Carrion - Karen Chiquito" +
-						" - Javier Cobeña - Dayana Garcia - Kevin Toala - David Viteri", "", ""),
+				new Contact("Universidad de Guayaquil - Facultad de ciencias matematicas y fisicas",
+						"http://www.cisc.ug.edu.ec", ""),
 				"Apache License Version 2.0",
 				"https://www.apache.org/licenses/LICENSE-2.0");
 		return apiInfo;
