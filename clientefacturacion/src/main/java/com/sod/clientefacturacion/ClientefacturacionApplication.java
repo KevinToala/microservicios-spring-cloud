@@ -8,7 +8,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableCircuitBreaker
 @SpringBootApplication
 public class ClientefacturacionApplication {
