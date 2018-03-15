@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ClienteFacturaControlador {
 	public static final String HTTP_SERVICIO_FACTURACION = "http://SERVICIO-FACTURACION/facturas";
+	
 	@Autowired
 	@LoadBalanced
 	protected RestTemplate restTemplate;
