@@ -17,11 +17,6 @@ public class ClienteControlador {
 	@Autowired
 	private ClienteRepositorio clienteRepositorio;
 	
-	/*@Autowired
-	@LoadBalanced
-	protected RestTemplate restTemplate;*/
-	
-	//@HystrixCommand(fallbackMethod = "errorFactura")
 	@GetMapping(value = "/clientes", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public WrapRespuesta<Cliente> obtenerClientes(){
 		ArrayList<Cliente> clientes = new ArrayList<>();
@@ -30,8 +25,4 @@ public class ClienteControlador {
 		});
 		return new WrapRespuesta<>(RuntimeUtil.getPort(), clientes);
 	}
-	
-	/*public FacturaDTO[] errorFactura(){
-		throw new RuntimeException("No se pudo obtener las facturas. Por favor, intentelo mas tarde.");
-	}*/
 }
