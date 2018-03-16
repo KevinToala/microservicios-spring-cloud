@@ -1,4 +1,4 @@
-package com.sod.clientefacturacion;
+package com.sod.clientes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,17 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 @SpringBootApplication
-public class ClientefacturacionApplication {
+public class ClientesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClientefacturacionApplication.class, args);
+		SpringApplication.run(ClientesApplication.class, args);
 	}
 	
-	@Bean
+	/*@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
-	}
+	}*/
 }

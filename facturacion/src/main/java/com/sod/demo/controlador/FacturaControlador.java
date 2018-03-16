@@ -2,6 +2,7 @@ package com.sod.demo.controlador;
 
 import com.sod.demo.RuntimeUtil;
 import com.sod.demo.modelo.Factura;
+import com.sod.demo.modelo.WrapRespuesta;
 import com.sod.demo.repositorio.FacturaRepositorio;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,25 +23,23 @@ public class FacturaControlador {
 	
 	@GetMapping(value = "/facturas", produces = "application/json; charset=UTF-8")
 	@ApiOperation(value = "Permite obtener el listado de facturas generadas", response = List.class)
-	public List<Factura> obtenerFacturas(){
+	public WrapRespuesta<List<Factura>> obtenerFacturas(){
 		ArrayList<Factura> facturas = new ArrayList<>();
 		facturaRepositorio.findAll().forEach(factura -> {
-			factura.setPuertoServicioObtuvo(String.valueOf(RuntimeUtil.getPort()));
 			facturas.add(factura);
 		});
-		return facturas;
+		return new WrapRespuesta<>(RuntimeUtil.getPort(), facturas);
 	}
 	
 	@PostMapping("/facturas")
-	public Factura crearFactura(@RequestBody Factura factura){
+	public WrapRespuesta<Factura> crearFactura(@RequestBody Factura factura){
 		factura.setFecha(LocalDateTime.now());
 		
 		if(StringUtils.trimToNull(factura.getCliente()) == null)
 			factura.setCliente("Consumidor Final");
 		
 		Factura facturaGuarda = facturaRepositorio.save(factura);
-		facturaGuarda.setPuertoServicioObtuvo(String.valueOf(RuntimeUtil.getPort()));
 		
-		return facturaGuarda;
+		return new WrapRespuesta<>(RuntimeUtil.getPort(), facturaGuarda);
 	}
 }

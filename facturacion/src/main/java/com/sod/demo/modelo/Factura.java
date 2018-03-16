@@ -28,9 +28,6 @@ public class Factura {
 	@ApiModelProperty(notes = "Total de la factura", required = true)
 	private BigDecimal total;
 	
-	@Transient
-	private String puertoServicioObtuvo;
-	
 	@Id
 	@GeneratedValue
 	public int getId(){
@@ -71,13 +68,5 @@ public class Factura {
 	
 	public void setTotal(BigDecimal total){
 		this.total = total;
-	}
-	
-	public String getPuertoServicioObtuvo(){
-		return puertoServicioObtuvo;
-	}
-	
-	public void setPuertoServicioObtuvo(String puertoServicioObtuvo){
-		this.puertoServicioObtuvo = puertoServicioObtuvo;
 	}
 }
